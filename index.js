@@ -10,14 +10,14 @@ import basicDetailsModel from './schema/schema.js'
 //Const and vars
 
 const app=express()
-const PORT=3005
 
 //Middleware
 
+app.use(cors())
 dotenv.config()
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
-app.use(cors())
+
 
 const verifyToken=(req,res,next)=>{
 
@@ -26,6 +26,7 @@ const verifyToken=(req,res,next)=>{
 		res.status(403).send("Token is required")
 	try{
 		const decoded=jwt.verify(token,`${process.env.SALT}`)
+		console.log(decoded)
 		}
 	catch(err){
 		req.status(403).send(err)
@@ -117,4 +118,4 @@ app.post('/delete',verifyToken,async(req,res)=>{
 })
 
 
-app.listen(PORT,()=>console.log(`@ ${PORT}`))
+app.listen(`${process.env.PORT}`,()=>console.log(`@ ${PORT}`))

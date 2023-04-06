@@ -118,4 +118,4 @@ app.post('/delete',verifyToken,async(req,res)=>{
 })
 
 
-app.listen(`${process.env.PORT}`,()=>console.log(`@ ${PORT}`))
+app.listen(`${process.env.PORT}`,()=>console.log(`@ ${process.env.PORT}`))

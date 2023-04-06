@@ -43,7 +43,7 @@ mongoose.connect(`${process.env.dbURL}`,{
 //routes
 
 app.get('/',(req,res)=>{
-	console.log(`Listening at ${PORT}`)
+	console.log(`Listening at ${process.env.PORT}`)
 	res.status(200).send("OK")
 })
 

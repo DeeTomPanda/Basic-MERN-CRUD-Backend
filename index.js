@@ -50,6 +50,7 @@ app.get('/',(req,res)=>{
 //Registation
 app.post('/register',async(req,res)=>{
 	
+	console.log(req.body)
 	const { UserName,Password,Name }=req.body
 	const user=await basicDetailsModel.findOne({UserName})
 	if(user)
